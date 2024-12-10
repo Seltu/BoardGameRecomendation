@@ -13,6 +13,7 @@ def manhattan(user, game):
 
 def recommend(favorites, games, keys_to_normalize):
     """Recommends games based on the average distance to a list of favorite games."""
+    games = [item for item in games if item not in favorites]
 
     # Normalizar o conjunto de jogos e obter os limites de normalização
     games, min_max = normalize_data(games, keys_to_normalize)
