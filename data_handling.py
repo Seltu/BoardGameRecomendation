@@ -4,14 +4,17 @@ import difflib
 import xml.etree.ElementTree as ET
 
 def get_boardgame_image(game_id):
-    url = f"https://boardgamegeek.com/xmlapi2/thing?id={game_id}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        root = ET.fromstring(response.content)
-        image_url = root.find("item/image")
-        return image_url.text if image_url is not None else "No image found"
-    else:
-        return f"Failed to fetch data (Status Code: {response.status_code})"
+    try:
+        url = f"https://boardgamegeek.com/xmlapi2/thing?id={game_id}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            root = ET.fromstring(response.content)
+            image_url = root.find("item/image")
+            return image_url.text if image_url is not None else "No image found"
+        else:
+            return f"Failed to fetch data (Status Code: {response.status_code})"
+    except Exception:
+        return "https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
 
 def get_game_data():
     # Lê o arquivo CSV e trata vírgulas como separadores decimais

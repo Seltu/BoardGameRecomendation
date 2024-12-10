@@ -36,7 +36,10 @@ for game in current_page_games:
 
     with col2:
         st.write(f"**{game['Name']}**")
-        st.write(f"{game['Play Time']} horas")
+        if f"{game['Domains']}" == "nan":
+            st.write(f"Gêneros: Não encontrado")
+        else:
+            st.write(f"Gêneros: {game['Domains']}")
 
     with col3:
         if st.button(f"Adicionar à minha lista {game['Name']}", key=game['ID']):
@@ -65,16 +68,22 @@ with col3:
 st.write("### Seus Jogos Favoritos:")
 for game in st.session_state.favorite_games:
     st.write(f"- {game['Name']}")
+if st.button("Apagar favoritos"):
+    session_state.favorite_games = []
+    st.rerun()
+if len(session_state.favorite_games) > 0:
+    if st.button("Recomendar Jogos"):
+        recommended = recommend(st.session_state.favorite_games, games_data, keys_to_normalize)[:5]
+        for game_tuple in recommended:
+            game = game_tuple[1]
+            col1, col2, col3 = st.columns([3, 4, 4])
 
-if st.button("Recomendar Jogos"):
-    recommended = recommend(st.session_state.favorite_games, games_data, keys_to_normalize)[:5]
-    for game_tuple in recommended:
-        game = game_tuple[1]
-        col1, col2, col3 = st.columns([3, 4, 4])
+            with col1:
+                st.image(get_boardgame_image(game['ID']), width=80)
 
-        with col1:
-            st.image(get_boardgame_image(game['ID']), width=80)
-
-        with col2:
-            st.write(f"**{game['Name']}**")
-            st.write(f"{game['Play Time']} horas")
+            with col2:
+                st.write(f"**{game['Name']}**")
+                if f"{game['Domains']}" == "nan":
+                    st.write(f"Gêneros: Não encontrado")
+                else:
+                    st.write(f"Gêneros: {game['Domains']}")
