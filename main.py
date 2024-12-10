@@ -32,7 +32,10 @@ for game in current_page_games:
     col1, col2, col3 = st.columns([3, 4, 4])
 
     with col1:
-        st.image(get_boardgame_image(game['ID']), width=80)
+        try:
+            st.image(get_boardgame_image(game['ID']), width=80)
+        except Exception:
+            st.image("notFound.png", width=80)
 
     with col2:
         st.write(f"**{game['Name']}**")
@@ -79,7 +82,10 @@ if len(session_state.favorite_games) > 0:
             col1, col2, col3 = st.columns([3, 4, 4])
 
             with col1:
-                st.image(get_boardgame_image(game['ID']), width=80)
+                try:
+                    st.image(get_boardgame_image(game['ID']), width=80)
+                except Exception:
+                    st.image("notFound.png", width=80)
 
             with col2:
                 st.write(f"**{game['Name']}**")
