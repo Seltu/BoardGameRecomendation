@@ -1,6 +1,6 @@
 # 🎲 Board Game Recommendation System
 
-Bem-vindo ao **Board Game Recommendation System**, uma aplicação criada para ajudar você a encontrar os melhores jogos de tabuleiro com base nos seus interesses, preferências e no feedback da comunidade!
+Bem-vindo ao **Board Game Recommendation System**, uma aplicação criada para ajudar você a encontrar os melhores jogos de tabuleiro com base nos seus interesses e preferências!
 
 ---
 
