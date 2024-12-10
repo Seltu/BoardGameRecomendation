@@ -14,8 +14,8 @@ def get_boardgame_image(game_id):
         return f"Failed to fetch data (Status Code: {response.status_code})"
 
 def get_game_data():
-    # Lê o arquivo CSV com o delimitador correto
-    df = pd.read_csv('bgg_dataset.csv', sep=';')
+    # Lê o arquivo CSV e trata vírgulas como separadores decimais
+    df = pd.read_csv('bgg_dataset.csv', sep=';', decimal=',')
 
     # Imprime os nomes das colunas para verificar se estão corretos
     print(df.columns)
@@ -24,8 +24,6 @@ def get_game_data():
     game_data = df.to_dict(orient='records')
 
     return game_data
-
-
 
 def sort_games_by_query(games_data, query):
     if not query.strip():

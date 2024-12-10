@@ -1,5 +1,6 @@
 import streamlit as st
 from data_handling import *
+from recomendation import recommend, keys_to_normalize
 from state_manager import *
 from config import *
 
@@ -64,3 +65,16 @@ with col3:
 st.write("### Seus Jogos Favoritos:")
 for game in st.session_state.favorite_games:
     st.write(f"- {game['Name']}")
+
+if st.button("Recomendar Jogos"):
+    recommended = recommend(st.session_state.favorite_games, games_data, keys_to_normalize)[:5]
+    for game_tuple in recommended:
+        game = game_tuple[1]
+        col1, col2, col3 = st.columns([3, 4, 4])
+
+        with col1:
+            st.image(get_boardgame_image(game['ID']), width=80)
+
+        with col2:
+            st.write(f"**{game['Name']}**")
+            st.write(f"{game['Play Time']} horas")
