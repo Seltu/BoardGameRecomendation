@@ -16,4 +16,16 @@ game_id = 13  # Replace with the actual game ID
 print(get_boardgame_image(game_id))
 
 def get_game_data():
-    return [{"Nome do Jogo":"Monopoly", "Tempo de Jogo":10}, {"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10}, {"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10}, {"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10}, {"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10} ,{"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10} ,{"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10}, {"Nome do Jogo":"Monopoly2", "Tempo de Jogo":10}]
+    return [
+        {"ID": 1406, "Nome do Jogo": "Catan", "Tempo de Jogo": 1.5},
+        {"ID": 2004, "Nome do Jogo": "Pandemic", "Tempo de Jogo": 2},
+        {"ID": 1546, "Nome do Jogo": "Ticket to Ride", "Tempo de Jogo": 1.5},
+        {"ID": 3456, "Nome do Jogo": "Gloomhaven", "Tempo de Jogo": 3},
+        {"ID": 9087, "Nome do Jogo": "Terraforming Mars", "Tempo de Jogo": 2.5},
+        {"ID": 1234, "Nome do Jogo": "7 Wonders", "Tempo de Jogo": 1},
+        {"ID": 6789, "Nome do Jogo": "Dominion", "Tempo de Jogo": 0.75},
+        {"ID": 8765, "Nome do Jogo": "Agricola", "Tempo de Jogo": 2.5},
+        {"ID": 4567, "Nome do Jogo": "Carcassonne", "Tempo de Jogo": 1},
+        {"ID": 3452, "Nome do Jogo": "Puerto Rico", "Tempo de Jogo": 2},
+        # Adicione mais jogos conforme necessário
+    ]
