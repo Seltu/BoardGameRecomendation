@@ -14,7 +14,7 @@ def get_boardgame_image(game_id):
         else:
             return f"Failed to fetch data (Status Code: {response.status_code})"
     except Exception:
-        return "https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+        return "notFound.png"
 
 def get_game_data():
     # Lê o arquivo CSV e trata vírgulas como separadores decimais
